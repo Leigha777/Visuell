@@ -1,4 +1,4 @@
-function renderStatus() {
-  document.getElementById('status').textContent = "AAAAAAAAAAAAAAAA";
-}
-document.getElementById('status').innerHtml = "AAAAAAAAAAAAAAAA";
+document.addEventListener('DOMContentLoaded', function() {
+
+    document.getElementById('status').textContent = "Testing";
+});
