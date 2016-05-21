@@ -63,11 +63,12 @@ function toggleMetric()
   if(metricChk.checked)
   {
     metric = true;
-    scaleDiv.innerHTML ="6/<input id="visAc"></input>";
+    scaleDiv.innerHTML ="6/<input id=\"visAc\"></input>";
   }
   else
   {
     metric = false;
-    scaleDiv.innerHTML = "20/<input id="visAc"></input>";
+    scaleDiv.innerHTML = "20/<input id=\"visAc\"></input>";
   }
+  restore_zoom();
 }
