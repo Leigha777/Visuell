@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function changezoom()
 {
-  var distance = parseInt(document.getElementById("dist").value);
-  var visAc = parseInt(document.getElementById("visAc").value);
+  var distance = parseFloat(document.getElementById("dist").value);
+  var visAc = parseFloat(document.getElementById("visAc").value);
   var neededDist = 20*distance/visAc;
   var zoomFactor = distance/neededDist;
   chrome.tabs.getSelected(null, function(tab)
