@@ -1,8 +1,24 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     var zoomButton = document.getElementById('changeZoomButton');
     zoomButton.addEventListener('click', changezoom);
+    var metric = false;
+    var metricChk = document.getElementById("metricChk");
+    metricChk.addEventListener('change', toggleMetric)
     restore_zoom();
 });
+
+/*
+chrome.tabs.onActivated.addListener(reloadZoom());
+chrome.tabs.onUpdated.addListener(reloadZoom());
+chrome.tabs.onHighlighted.addListener(reloadZoom());
+chrome.tabs.onCreated.addListener(reloadZoom());
+
+function reloadZoom()
+{
+  restore_zoom();
+  changezoom();
+}*/
 
 function changezoom()
 {
@@ -39,4 +55,19 @@ function restore_zoom()
     document.getElementById('dist').value = items.distance;
     document.getElementById('visAc').value = items.visAc;
   })
+}
+
+function toggleMetric()
+{
+  var scaleDiv = document.getElementById('scale');
+  if(metricChk.checked)
+  {
+    metric = true;
+    scaleDiv.innerHTML ="6/<input id="visAc"></input>";
+  }
+  else
+  {
+    metric = false;
+    scaleDiv.innerHTML = "20/<input id="visAc"></input>";
+  }
 }
