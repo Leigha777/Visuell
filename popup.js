@@ -288,6 +288,7 @@ function toggleEnabled()
       var tabId = tab.id;
       chrome.tabs.setZoom(tabId, 0, null);
     })
+    save_zoom();
   }
 }
 
@@ -303,15 +304,4 @@ function exitsettings()
 {
   document.getElementById('main').style.display='block';
   document.getElementById('settings').style.display='none';
-}
-
-// Restores the checkbox and zoom from the background
-function restoreZoomFromBackground()
-{
-  restore_zoom();
-  if(enabled)
-  {
-    document.getElementById("chkEnable").checked = true;
-    changezoomclick();
-  }
 }
