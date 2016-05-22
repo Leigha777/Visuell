@@ -2,7 +2,6 @@
 // Global Vars
 var metric = false;
 var enabled = false;
-var origzoomFactor = 1;
 
 // On Page load
 document.addEventListener('DOMContentLoaded', function() {
@@ -92,20 +91,6 @@ function changezoom(distance, visAc)
   save_zoom(distance, visAc, neededDist, zoomFactor);
 }
 
-// Save the original zoom at the beginning of the session
-function saveOrigZoom()
-{
-  chrome.tabs.getSelected(null, function(tab)
-  {
-    var tabId = tab.id;
-    chrome.tabs.getZoom(tabId, function(zoomFactor) {
-      chrome.storage.sync.set({
-        origzoomFactor: zoomFactor
-      }, null);
-    });
-  })
-}
-
 // Save the zoom data after zooming
 function save_zoom(distance, visAc, neededDist, zoomFactor)
 {
@@ -128,12 +113,10 @@ function restore_zoom()
     needeDist: 2,
     zoomFactor: 1,
     metric: false,
-    origzoomFactor: 1,
     enabled: false
   }, function(items) {
     document.getElementById('dist').value = items.distance;
     document.getElementById('visAc').value = items.visAc;
-    origzoomFactor = items.origzoomFactor;
     metric = items.metric;
     enabled = items.enabled;
   })
@@ -295,7 +278,6 @@ function toggleEnabled()
   if(chkEnable.checked)
   {
     enabled = true;
-    saveOrigZoom();
     restore_zoom();
     changezoomclick();
   }
@@ -304,7 +286,7 @@ function toggleEnabled()
     chrome.tabs.getSelected(null, function(tab)
     {
       var tabId = tab.id;
-      chrome.tabs.setZoom(tabId, origzoomFactor, null);
+      chrome.tabs.setZoom(tabId, 0, null);
     })
   }
 }
