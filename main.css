@@ -22,14 +22,15 @@
     opacity: .5;*/
 }
 .pink {
+    color: #ffffff;
     font-family: Raleway;
-    font-size: 40px;
-    font-weight: 700;
+    font-size: 25px;
+    font-weight: 400;
     width:100%;
-    display: block;
-    padding-top: 50px;
+    height: 260px;
+    background-color: #86C1C6;
     text-align: center;
-    background-color: #E6ABE8;
+    display: inline-block;
     /*font-family: Raleway;
     font-size: 25px;
     width:99%;
