@@ -321,3 +321,14 @@ function exitsettings()
   document.getElementById('main').style.display='block';
   document.getElementById('settings').style.display='none';
 }
+
+// Restores the checkbox and zoom from the background
+function restoreZoomFromBackground()
+{
+  restore_zoom();
+  if(enabled)
+  {
+    document.getElementById("chkEnable").checked = true;
+    changezoomclick();
+  }
+}
