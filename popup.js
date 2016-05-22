@@ -162,6 +162,7 @@ function toggleMetric()
 function dioptriczoomclick()
 {
   document.getElementById('dioptricopts').style.display='block';
+  enabled = true;
 
   var dods = parseFloat(document.getElementById('dods').value);
   var doss = parseFloat(document.getElementById('doss').value);
