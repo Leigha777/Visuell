@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   restore_zoom();
 
+  var radios = document.getElementsByName('zoomopt');
+  for(var i = 0, max = radios.length; i < max; i++) {
+      radios[i].addEventListener('click', changeopt);
+  }
+
   document.getElementById('changeZoomButton').addEventListener('click', changezoomclick);
   document.getElementById("metricChk").addEventListener('change', toggleMetric);
 
@@ -115,6 +120,8 @@ function toggleMetric()
 
 function dioptriczoomclick()
 {
+  document.getElementById('dioptricopts').style.display='block';
+
   var dods = parseFloat(document.getElementById('dods').value);
   var doss = parseFloat(document.getElementById('doss').value);
   var aods = parseFloat(document.getElementById('aods').value);
@@ -207,4 +214,34 @@ function dioptriczoomclick()
       changezoom(2, 30);
     });
   }
+}
+
+function changeopt()
+{
+  var radios = document.getElementsByName('zoomopt');
+  var i = radios.length;
+  for(var j = 0; j < i; j++) {
+    if(radios[j].checked)
+    {
+      switch(j)
+      {
+        case 0:
+          document.getElementById('manual').style.display='block';
+          document.getElementById('snellenpick').style.display='none';
+          document.getElementById('diopters').style.display='none';
+          break;
+        case 1:
+          document.getElementById('manual').style.display='none';
+          document.getElementById('snellenpick').style.display='block';
+          document.getElementById('diopters').style.display='none';
+          break;
+        case 2:
+          document.getElementById('manual').style.display='none';
+          document.getElementById('snellenpick').style.display='none';
+          document.getElementById('diopters').style.display='block';
+          break;
+      }
+    }
+  }
+  document.getElementById('dioptricopts').style.display='none';
 }

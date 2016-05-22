@@ -9,8 +9,8 @@
     <title>Visuell</title>
     <style>
       body {
-        width: 500px;
-        height: 550px;
+        width: 550px;
+        height: 350px;
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
       }
@@ -36,8 +36,14 @@
     <script src="popup.js"></script>
   </head>
   <body>
+    <div id=zoomopts>
+      <input type="radio" id="rdopt1" name="zoomopt">Visual Acuity Entry</input>
+      <input type="radio" id="rdopt2" name="zoomopt">Snellen Test</input>
+      <input type="radio" id="rdopt3" name="zoomopt">Prescription Entry</input>
+    </div>
+
     <!-- Manual Entry -->
-    <div id="manual">
+    <div id="manual" style="display:block">
       Visual Acuity:
       <div id="scale">20/<input id="visAc"></input></div>
       <br>
@@ -48,10 +54,8 @@
       <button id="changeZoomButton" type="button">Change Zoom</button>
     </div>
 
-    <hr>
-
     <!-- Snellen Chart Picker -->
-    <div id="snellenpick">
+    <div id="snellenpick" style="display:none">
       <input type="image" src="snellen20200.png" id="snellen20200" style="height:58px;width:auto;"</input>
       <br>
       <input type="image" src="snellen20100.png" id="snellen20100" style="height:37px;width:auto;"</input>
@@ -70,111 +74,115 @@
       <br>
     </div>
 
-    <hr>
-
     <!-- Prescription picker -->
-    <table id="diopters">
-      <tr>
-        <td>
-          Distance
-        </td>
-        <td>
-          <table id="distance">
-            <tr>
-              <td></td>
-              <td>
-                Sphere
-              </td>
-              <!--
-              <td>
-                Cylinder
-              </td>
-              <td>
-                Axis
-              </td>
-              <td>
-                Prism
-              </td>
-              <td>
-                Base
-              </td>
-              -->
-            </tr>
-            <tr>
-              <td>OD</td>
-              <td>
-                <input id="dods"></input>
-              </td>
-              <!--
-              <td>
-                <input id="dodc"></input>
-              </td>
-              <td>
-                <input id="doda"></input>
-              </td>
-              <td>
-                <input id="dodp"></input>
-              </td>
-              <td>
-                <input id="dodb"></input>
-              </td>
-              -->
-            </tr>
-            <tr>
-              <td>OS</td>
-              <td>
-                <input id="doss"></input>
-              </td>
-              <!--
-              <td>
-                <input id="dosc"></input>
-              </td>
-              <td>
-                <input id="dosa"></input>
-              </td>
-              <td>
-                <input id="dosp"></input>
-              </td>
-              <td>
-                <input id="dosb"></input>
-              </td>
-              -->
-            </tr>
-          </table>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          Add
-        </td>
-        <td>
-          <table>
-            <tr>
-              <td>
-                OD
-              </td>
-              <td>
-                <input id="aods"></input>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                OS
-              </td>
-              <td>
-                <input id="aoss"></input>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-    <button id="dioptriczoombutton" type="button">Calculate</button>
+    <div  id="diopters" style="display:none">
+      <table>
+        <tr>
+          <td>
+            Distance
+          </td>
+          <td>
+            <table id="distance">
+              <tr>
+                <td></td>
+                <td>
+                  Sphere
+                </td>
+                <!--
+                <td>
+                  Cylinder
+                </td>
+                <td>
+                  Axis
+                </td>
+                <td>
+                  Prism
+                </td>
+                <td>
+                  Base
+                </td>
+                -->
+              </tr>
+              <tr>
+                <td>OD</td>
+                <td>
+                  <input id="dods"></input>
+                </td>
+                <!--
+                <td>
+                  <input id="dodc"></input>
+                </td>
+                <td>
+                  <input id="doda"></input>
+                </td>
+                <td>
+                  <input id="dodp"></input>
+                </td>
+                <td>
+                  <input id="dodb"></input>
+                </td>
+                -->
+              </tr>
+              <tr>
+                <td>OS</td>
+                <td>
+                  <input id="doss"></input>
+                </td>
+                <!--
+                <td>
+                  <input id="dosc"></input>
+                </td>
+                <td>
+                  <input id="dosa"></input>
+                </td>
+                <td>
+                  <input id="dosp"></input>
+                </td>
+                <td>
+                  <input id="dosb"></input>
+                </td>
+                -->
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Add
+          </td>
+          <td>
+            <table>
+              <tr>
+                <td>
+                  OD
+                </td>
+                <td>
+                  <input id="aods"></input>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  OS
+                </td>
+                <td>
+                  <input id="aoss"></input>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <button id="dioptriczoombutton" type="button">Calculate</button>
 
-    <!-- Dioptric options -->
-    <button id="opt1">Zoom 1</button>
-    <button id="opt2">Zoom 2</button>
-    <button id="opt3">Zoom 3</button>
+      <!-- Dioptric options -->
+      <div id=dioptricopts style="display:none">
+        <br>
+        <br>
+        <button id="opt1">Zoom 1</button>
+        <button id="opt2">Zoom 2</button>
+        <button id="opt3">Zoom 3</button>
+      </div>
+    </div>
 
   </body>
 </html>
