@@ -1,54 +1,55 @@
-#header {
+  html {
+    height: 100%;
+  }
+  body {
+    margin: 0px;
+    background-color: #FEFDFD;
+    font-family: Raleway;
+    height:100%;
+    color:#86C1C6;
+  }
+  p {
+   margin-left: 10%;
+   margin-right: 10%;
+   width: 80%;
+  }
+  #header {
+    color:#86C1C6;
     font-family: Raleway;
     font-size:64px;
-    width:99%;
-    height: 100px;
-    background-color: #86C1C6;
-    top:auto;
-    border-radius: 15px;
-    padding-top: 25px;
+    font-weight: 700;
+    width:100%;
+    height: 20%;
     text-align: center;
     display: block;
-    /*opacity: .5;*/
+    padding-top: 35px;
+    padding-bottom: 35px;
 }
 #misstate {
+    color: #ffffff;
     font-family: Raleway;
     font-size: 25px;
-    width:99%;
-    height: 100%;
-    background-color: #E6ABE8;
-    top:auto;
-    border-radius: 15px;
-    padding-top: 10px;
+    font-weight: 400;
+    width:100%;
+    height: 260px;
+    background-color: #86C1C6;
     text-align: center;
-    display: inline-block;  
-    opacity: .6;
-    overflow: auto;
-    padding-bottom: 10px;
+    display: inline-block;
 }
-
+#teammono {
+  float:center;
+  display:inline;
+}
 #names {
     font-family: Raleway;
-    font-size: 25px;
-    width:99%;
-    height: 100%;
-    background-color: #bfbfbf;
-    top:auto;
-    border-radius: 15px;
-    padding-top: 10px;
-    padding-left: 10px;
-    overflow: auto;
-    padding-bottom: 10px;
-
+    font-size: 40px;
+    font-weight: 700;
+    width:100%;
+    display: block;
+    padding-top: 50px;
+    text-align: center;
 }
-
-#tnam {
-    padding-top:20px;
-    float:left;
-    padding-left:50px;
-}
-
-
 #img {
-    float:right;
+    position:absolute;
+    right: 200px;
 }
