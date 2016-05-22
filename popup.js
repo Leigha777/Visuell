@@ -1,6 +1,7 @@
 
 var metric = false;
 var enabled = false;
+var origzoomFactor = 1;
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -9,6 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('exitsettings').addEventListener('click', exitsettings);
 
   restore_zoom();
+  if(enabled)
+  {
+    document.getElementById("chkEnable").checked = true;
+    changezoomclick();
+  }
 
   var radios = document.getElementsByName('zoomopt');
   for(var i = 0, max = radios.length; i < max; i++) {
@@ -76,13 +82,28 @@ function changezoom(distance, visAc)
   save_zoom(distance, visAc, neededDist, zoomFactor);
 }
 
+function saveOrigZoom()
+{
+  chrome.tabs.getSelected(null, function(tab)
+  {
+    var tabId = tab.id;
+    chrome.tabs.getZoom(tabId, function(zoomFactor) {
+      chrome.storage.sync.set({
+        origzoomFactor: zoomFactor
+      }, null);
+    });
+  })
+}
+
 function save_zoom(distance, visAc, neededDist, zoomFactor)
 {
   chrome.storage.sync.set({
     distance: distance,
     visAc: visAc,
     neededDist: neededDist,
-    zoomFactor: zoomFactor
+    zoomFactor: zoomFactor,
+    metric: metric,
+    enabled: enabled
   }, null);
 }
 
@@ -92,10 +113,16 @@ function restore_zoom()
     distance: 2,
     visAc: 20,
     needeDist: 2,
-    zoomFactor: 1
+    zoomFactor: 1,
+    metric: false,
+    origzoomFactor: 1,
+    enabled: false
   }, function(items) {
     document.getElementById('dist').value = items.distance;
     document.getElementById('visAc').value = items.visAc;
+    origzoomFactor = items.origzoomFactor;
+    metric = items.metric;
+    enabled = items.enabled;
   })
 }
 
@@ -252,12 +279,17 @@ function toggleEnabled()
   if(chkEnable.checked)
   {
     enabled = true;
+    saveOrigZoom();
     restore_zoom();
     changezoomclick();
   }
   else {
     enabled = false;
-    // TODO default zoom stuff
+    chrome.tabs.getSelected(null, function(tab)
+    {
+      var tabId = tab.id;
+      chrome.tabs.setZoom(tabId, origzoomFactor, null);
+    })
   }
 }
 
