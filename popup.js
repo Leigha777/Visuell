@@ -1,14 +1,18 @@
 
+// Global Vars
 var metric = false;
 var enabled = false;
 var origzoomFactor = 1;
 
+// On Page load
 document.addEventListener('DOMContentLoaded', function() {
 
+  // Event listeners for global buttons and check boxes
   document.getElementById("chkEnable").addEventListener('click', toggleEnabled);
   document.getElementById('switchsettings').addEventListener('click', changesettings);
   document.getElementById('exitsettings').addEventListener('click', exitsettings);
 
+  // Restore the previous zoom settings if enabled
   restore_zoom();
   if(enabled)
   {
@@ -16,14 +20,17 @@ document.addEventListener('DOMContentLoaded', function() {
     changezoomclick();
   }
 
+  // Setup event listeners for option picker radio buttons
   var radios = document.getElementsByName('zoomopt');
   for(var i = 0, max = radios.length; i < max; i++) {
       radios[i].addEventListener('click', changeopt);
   }
 
+  // Setup Event listeners for manual entry
   document.getElementById('changeZoomButton').addEventListener('click', changezoomclick);
   document.getElementById("metricChk").addEventListener('change', toggleMetric);
 
+  // Setup event listeners for snellen chart
   document.getElementById('snellen20200').addEventListener('click', function() {
     changezoom(2, 200)
   });
@@ -49,11 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
     changezoom(2, 20)
   });
 
+  // Setup Event listener for prescription submit
   document.getElementById('dioptriczoombutton').addEventListener('click', dioptriczoomclick);
 });
 
 /* TODO Figure out how to persist across tabs and stuff*/
 
+// Change the zoom by grabbing values
 function changezoomclick()
 {
   var distance = parseFloat(document.getElementById("dist").value);
@@ -61,6 +70,7 @@ function changezoomclick()
   changezoom(distance, visAc);
 }
 
+// Generic function to change the zoom
 function changezoom(distance, visAc)
 {
   var base = 20;
@@ -82,6 +92,7 @@ function changezoom(distance, visAc)
   save_zoom(distance, visAc, neededDist, zoomFactor);
 }
 
+// Save the original zoom at the beginning of the session
 function saveOrigZoom()
 {
   chrome.tabs.getSelected(null, function(tab)
@@ -95,6 +106,7 @@ function saveOrigZoom()
   })
 }
 
+// Save the zoom data after zooming
 function save_zoom(distance, visAc, neededDist, zoomFactor)
 {
   chrome.storage.sync.set({
@@ -107,6 +119,7 @@ function save_zoom(distance, visAc, neededDist, zoomFactor)
   }, null);
 }
 
+// Restore zoom data after opening
 function restore_zoom()
 {
   chrome.storage.sync.get({
@@ -126,6 +139,7 @@ function restore_zoom()
   })
 }
 
+// Switch between metric and imperial
 function toggleMetric()
 {
   save_zoom();
@@ -144,6 +158,7 @@ function toggleMetric()
   restore_zoom();
 }
 
+// Zoom options for prescription entry
 function dioptriczoomclick()
 {
   document.getElementById('dioptricopts').style.display='block';
@@ -272,6 +287,7 @@ function changeopt()
   document.getElementById('dioptricopts').style.display='none';
 }
 
+// Actually zoom when enabled
 function toggleEnabled()
 {
   var chkEnable = document.getElementById('chkEnable');
@@ -292,12 +308,14 @@ function toggleEnabled()
   }
 }
 
+// Open the settings
 function changesettings()
 {
   document.getElementById('main').style.display='none';
   document.getElementById('settings').style.display='block';
 }
 
+// Close the settings
 function exitsettings()
 {
   document.getElementById('main').style.display='block';
