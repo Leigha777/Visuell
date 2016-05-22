@@ -9,6 +9,9 @@ p {
   padding-left: 15%;
   padding-right: 15%;
 }
+a:link {
+  text-decoration: none;
+}
 .blank {
   height: 10px;
 }
