@@ -36,30 +36,145 @@
     <script src="popup.js"></script>
   </head>
   <body>
-    Visual Acuity:
-    <div id="scale">20/<input id="visAc"></input></div>
-    <br>
-    Distance From Screen: <input id="dist"></input>
-    <br>
-    <input id="metricChk" type="checkbox">Use Metric</input>
-    <br>
-    <button id="changeZoomButton" type="button">Change Zoom</button>
+    <!-- Manual Entry -->
+    <div id="manual">
+      Visual Acuity:
+      <div id="scale">20/<input id="visAc"></input></div>
+      <br>
+      Distance From Screen: <input id="dist"></input>
+      <br>
+      <input id="metricChk" type="checkbox">Use Metric</input>
+      <br>
+      <button id="changeZoomButton" type="button">Change Zoom</button>
+    </div>
+
     <hr>
-    <input type="image" src="snellen20200.png" id="snellen20200" style="height:58px;width:auto;"</input>
-    <br>
-    <input type="image" src="snellen20100.png" id="snellen20100" style="height:37px;width:auto;"</input>
-    <br>
-    <input type="image" src="snellen2070.png" id="snellen2070" style="height:33px;width:auto;"</input>
-    <br>
-    <input type="image" src="snellen2050.png" id="snellen2050" style="height:24px;width:auto;"</input>
-    <br>
-    <input type="image" src="snellen2040.png" id="snellen2040" style="height:20px;width:auto;"</input>
-    <br>
-    <input type="image" src="snellen2030.png" id="snellen2030" style="height:16px;width:auto;"</input>
-    <br>
-    <input type="image" src="snellen2025.png" id="snellen2025" style="height:12px;width:auto;"</input>
-    <br>
-    <input type="image" src="snellen2020.png" id="snellen2020" style="height:10px;width:auto;"</input>
-    <br>
+
+    <!-- Snellen Chart Picker -->
+    <div id="snellenpick">
+      <input type="image" src="snellen20200.png" id="snellen20200" style="height:58px;width:auto;"</input>
+      <br>
+      <input type="image" src="snellen20100.png" id="snellen20100" style="height:37px;width:auto;"</input>
+      <br>
+      <input type="image" src="snellen2070.png" id="snellen2070" style="height:33px;width:auto;"</input>
+      <br>
+      <input type="image" src="snellen2050.png" id="snellen2050" style="height:24px;width:auto;"</input>
+      <br>
+      <input type="image" src="snellen2040.png" id="snellen2040" style="height:20px;width:auto;"</input>
+      <br>
+      <input type="image" src="snellen2030.png" id="snellen2030" style="height:16px;width:auto;"</input>
+      <br>
+      <input type="image" src="snellen2025.png" id="snellen2025" style="height:12px;width:auto;"</input>
+      <br>
+      <input type="image" src="snellen2020.png" id="snellen2020" style="height:10px;width:auto;"</input>
+      <br>
+    </div>
+
+    <hr>
+
+    <!-- Prescription picker -->
+    <table id="diopters">
+      <tr>
+        <td>
+          Distance
+        </td>
+        <td>
+          <table id="distance">
+            <tr>
+              <td></td>
+              <td>
+                Sphere
+              </td>
+              <!--
+              <td>
+                Cylinder
+              </td>
+              <td>
+                Axis
+              </td>
+              <td>
+                Prism
+              </td>
+              <td>
+                Base
+              </td>
+              -->
+            </tr>
+            <tr>
+              <td>OD</td>
+              <td>
+                <input id="dods"></input>
+              </td>
+              <!--
+              <td>
+                <input id="dodc"></input>
+              </td>
+              <td>
+                <input id="doda"></input>
+              </td>
+              <td>
+                <input id="dodp"></input>
+              </td>
+              <td>
+                <input id="dodb"></input>
+              </td>
+              -->
+            </tr>
+            <tr>
+              <td>OS</td>
+              <td>
+                <input id="doss"></input>
+              </td>
+              <!--
+              <td>
+                <input id="dosc"></input>
+              </td>
+              <td>
+                <input id="dosa"></input>
+              </td>
+              <td>
+                <input id="dosp"></input>
+              </td>
+              <td>
+                <input id="dosb"></input>
+              </td>
+              -->
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Add
+        </td>
+        <td>
+          <table>
+            <tr>
+              <td>
+                OD
+              </td>
+              <td>
+                <input id="aods"></input>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                OS
+              </td>
+              <td>
+                <input id="aoss"></input>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <button id="dioptriczoombutton" type="button">Calculate</button>
+
+    <!-- Dioptric options -->
+    <button id="opt1">Zoom 1</button>
+    <button id="opt2">Zoom 2</button>
+    <button id="opt3">Zoom 3</button>
+
   </body>
 </html>
