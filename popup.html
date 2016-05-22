@@ -36,7 +36,19 @@
     <script src="popup.js"></script>
   </head>
   <body>
-    <div id="options" style="">
+
+    <!-- Main page -->
+    <div id="main" style="display:block">
+      <div id"text"></div>
+      <br>
+      <input id="chkEnable" type="checkbox">Enable Visuell</input>
+      <br>
+      <br>
+      <button id="switchsettings" type="button">Settings</button>
+    </div>
+
+    <!-- settings stuff -->
+    <div id="settings" style="display:none">
       <!-- Option tabs -->
       <div id="zoomopts">
         <input type="radio" id="rdopt1" name="zoomopt" checked='checked'>Visual Acuity Entry</input>
@@ -53,7 +65,7 @@
         <br>
         <input id="metricChk" type="checkbox">Use Metric</input>
         <br>
-        <button id="changeZoomButton" type="button">Change Zoom</button>
+        <button id="changeZoomButton" type="button">Set Zoom</button>
       </div>
 
       <!-- Snellen Chart Picker -->
@@ -185,6 +197,10 @@
           <button id="opt3">Zoom 3</button>
         </div>
       </div>
+
+      <br>
+      <br>
+      <button id="exitsettings" type="button">Close Settings</button>
     </div>
   </body>
 </html>

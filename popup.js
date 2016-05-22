@@ -1,7 +1,12 @@
 
 var metric = false;
+var enabled = false;
 
 document.addEventListener('DOMContentLoaded', function() {
+
+  document.getElementById("chkEnable").addEventListener('click', toggleEnabled);
+  document.getElementById('switchsettings').addEventListener('click', changesettings);
+  document.getElementById('exitsettings').addEventListener('click', exitsettings);
 
   restore_zoom();
 
@@ -63,7 +68,10 @@ function changezoom(distance, visAc)
   chrome.tabs.getSelected(null, function(tab)
   {
     var tabId = tab.id;
-    chrome.tabs.setZoom(tabId, zoomFactor, null);
+    if(enabled)
+    {
+      chrome.tabs.setZoom(tabId, zoomFactor, null);
+    }
   })
   save_zoom(distance, visAc, neededDist, zoomFactor);
 }
@@ -94,6 +102,7 @@ function restore_zoom()
 function toggleMetric()
 {
   save_zoom();
+  var metricChk = document.getElementById("metricChk");
   var scaleDiv = document.getElementById('scale');
   if(metricChk.checked)
   {
@@ -234,4 +243,32 @@ function changeopt()
     }
   }
   document.getElementById('dioptricopts').style.display='none';
+}
+
+  // TODO Make enable actually do something
+function toggleEnabled()
+{
+  var chkEnable = document.getElementById('chkEnable');
+  if(chkEnable.checked)
+  {
+    enabled = true;
+    restore_zoom();
+    changezoomclick();
+  }
+  else {
+    enabled = false;
+    // TODO default zoom stuff
+  }
+}
+
+function changesettings()
+{
+  document.getElementById('main').style.display='none';
+  document.getElementById('settings').style.display='block';
+}
+
+function exitsettings()
+{
+  document.getElementById('main').style.display='block';
+  document.getElementById('settings').style.display='none';
 }
