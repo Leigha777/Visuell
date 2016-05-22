@@ -16,9 +16,15 @@
         overflow: hidden;
         max-width: 400px;
       }
+      #main {
+        font-size: 20px;
+      }
       input {
         display: inline-block;
-        width:50px;
+      }
+      .topfont {
+        font-size: 40px;
+        font-weight: 500;
       }
     </style>
     <script src="popup.js"></script>
@@ -27,9 +33,9 @@
 
     <!-- Main page -->
     <div id="main" style="display:block">
-      Welcome to Visuell.
+      <div class="topfont">Welcome to Visuell.</div>
       <br>
-      If this is your first time, please go to the Settings and configure your zoom.
+      If this is your first time using Visuell, please go to the Settings and configure your zoom.
       <br>
       Otherwise, check the checkbox to enable Visuell for this tab.
       <br>
@@ -38,8 +44,8 @@
       <br>
       <button id="switchsettings" type="button">Settings</button>
       <br>
-      <a href="http://www.achow101.com/Visuell/test_page.html">Demo Page</a><br>
-      <a href="http://www.achow101.com/Visuell/about_us.html">About UsM</a>
+      <a href="http://www.achow101.com/Visuell/test_page.html" target="_blank">Demo Page</a><br>
+      <a href="http://www.achow101.com/Visuell/about_us.html" target="_blank">About Us</a>
     </div>
 
     <!-- settings stuff -->
