@@ -3,7 +3,7 @@
 
   "name": "Visuell",
   "description": "An extension that allows users with prescription glasses or contacts to use the internet without using eyewear.",
-  "version": "0.1",
+  "version": "1.0",
 
   "icons": { "48": "icon.png"},
 

@@ -41,17 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('dioptriczoombutton').addEventListener('click', dioptriczoomclick);
 });
 
-/*
-chrome.tabs.onActivated.addListener(reloadZoom());
-chrome.tabs.onUpdated.addListener(reloadZoom());
-chrome.tabs.onHighlighted.addListener(reloadZoom());
-chrome.tabs.onCreated.addListener(reloadZoom());
-
-function reloadZoom()
-{
-  restore_zoom();
-  changezoom();
-}*/
+/* TODO Figure out how to persist across tabs and stuff*/
 
 function changezoomclick()
 {
