@@ -27,12 +27,19 @@
         display: inline-block;
       }
       .topfont {
+        padding-top: 15px;
         font-size: 30px;
         font-weight: 500;
       }
       .bluefont {
         color:#86C1C6;
-        display: inline-block;
+      }
+      .specialsnowflakesnellenbluefont {
+        color:#86C1C6;
+        padding-top: 15px;
+        padding-bottom: 0px;
+        font-size: 25px;
+        font-weight: 500;
       }
       a:link {
         color: #78ADB2;
@@ -51,7 +58,7 @@
         text-decoration: none;
       }
       button {
-        background-color: #86C1C6;
+        background-color: #78ADB2;
         border: none;
         border-radius: 25px;
         color: #FEFDFD;
@@ -73,7 +80,7 @@
       <br>
       Otherwise, check the checkbox to enable Visuell for this tab.
       <br>
-      <input id="chkEnable" type="checkbox"><div class="bluefont">Enable Visuell</div></input>
+      <input id="chkEnable" type="checkbox"><span class="bluefont">Enable Visuell</span></input>
       <br>
       <br>
       <button id="switchsettings" type="button">Settings</button>
@@ -84,12 +91,13 @@
 
     <!-- settings stuff -->
     <div id="settings" style="display:none">
-      Options for getting zoom data:
+      <div class="specialsnowflakesnellenbluefont">Options for getting zoom data:</div>
       <br><br>
       <!-- Option tabs -->
-      <div id="zoomopts">
+      <div id="zoomopts" class="bluefont">
         <input type="radio" id="rdopt1" name="zoomopt" checked='checked'>Visual Acuity Entry</input>
         <input type="radio" id="rdopt2" name="zoomopt">Snellen Test</input>
+        <br>
         <input type="radio" id="rdopt3" name="zoomopt">Prescription Entry</input>
       </div>
       <br>
@@ -98,12 +106,12 @@
       <div id="manual" style="display:block">
         Visual Acuity is the measurement of the clarity of vision. This test is typically done wih an eye chart. Visual Acuity is measured on the 20/20 scale (6/6 for metric). Use this form if you know your Visual Acuity.
         <br><br>
-        Visual Acuity:
+        <span class="bluefont">Visual Acuity</span>:
         <div id="scale">20/<input id="visAc"></input></div>
         <br>
-        Distance From Screen: <input id="dist"></input>
+        <span class="bluefont">Distance From Screen</span>: <input id="dist"></input>
         <br>
-        <input id="metricChk" type="checkbox">Use Metric</input>
+        <input id="metricChk" type="checkbox"><span class="bluefont">Use Metric</span></input>
         <br>
         <button id="changeZoomButton" type="button">Set Zoom</button>
       </div>
@@ -112,8 +120,8 @@
       <div id="snellenpick" style="display:none">
         This form is a Snellen Chart, a commonly used chart to measure Visual Acuity. Remove your prescription lenses and select the the lowest line that you are able to see.
         <br><br>
-        <div style="font-size:10px;">*Disclaimer: Not certified by medical professionals.</div>
-        <br><br>
+        <div class="bluefont" style="font-size:10px;">*Disclaimer: Not certified by medical professionals.</div>
+        <br>
         <input type="image" src="snellen20200.png" id="snellen20200" style="height:58px;width:auto;"</input>
         <br>
         <input type="image" src="snellen20100.png" id="snellen20100" style="height:37px;width:auto;"</input>
@@ -138,14 +146,14 @@
         <table>
           <tr>
             <td>
-              Distance
+              <span class="bluefont">Distance</span>
             </td>
             <td>
               <table id="distance">
                 <tr>
                   <td></td>
                   <td>
-                    Sphere
+                    <span class="bluefont">Sphere</span>
                   </td>
                 </tr>
                 <tr>
@@ -165,7 +173,7 @@
           </tr>
           <tr>
             <td>
-              Add
+              <span class="bluefont">Add</span>
             </td>
             <td>
               <table>
