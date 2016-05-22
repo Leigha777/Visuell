@@ -9,6 +9,9 @@
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
         text-align: center;
+        background-color: #FEFDFD;
+        color:#1E1E1E;
+        font-weight: 500;
       }
       #status {
         /* avoid an excessively wide status text */
@@ -27,21 +30,34 @@
         font-size: 30px;
         font-weight: 500;
       }
+      .bluefont {
+        color:#86C1C6;
+        display: inline-block;
+      }
       a:link {
-        color: black;
+        color: #78ADB2;
         text-decoration: none;
       }
       a:visited{
-        color: black;
+        color: #78ADB2;
         text-decoration: none;
       }
       a:hover{
-        color:black;
+        color: #78ADB2;
         text-decoration: none;
       }
       a:active{
-        color:black;
+        color: #78ADB2;
         text-decoration: none;
+      }
+      button {
+        background-color: #86C1C6;
+        border: none;
+        border-radius: 25px;
+        color: #FEFDFD;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 5px 10px;
       }
 
     </style>
@@ -51,13 +67,13 @@
 
     <!-- Main page -->
     <div id="main" style="display:block">
-      <div class="topfont">Welcome to Visuell.</div>
+      <div class="topfont bluefont">Welcome to Visuell.</div>
       <br>
       If this is your first time using Visuell, please go to the Settings and configure your zoom.
       <br>
       Otherwise, check the checkbox to enable Visuell for this tab.
       <br>
-      <input id="chkEnable" type="checkbox">Enable Visuell</input>
+      <input id="chkEnable" type="checkbox"><div class="bluefont">Enable Visuell</div></input>
       <br>
       <br>
       <button id="switchsettings" type="button">Settings</button>
