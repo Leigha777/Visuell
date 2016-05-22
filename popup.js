@@ -272,7 +272,6 @@ function changeopt()
   document.getElementById('dioptricopts').style.display='none';
 }
 
-  // TODO Make enable actually do something
 function toggleEnabled()
 {
   var chkEnable = document.getElementById('chkEnable');

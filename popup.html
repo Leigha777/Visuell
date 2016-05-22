@@ -39,25 +39,37 @@
 
     <!-- Main page -->
     <div id="main" style="display:block">
-      <div id"text"></div>
+      Welcome to Visuell.
+      <br>
+      If this is your first time, please go to the Settings and configure your zoom.
+      <br>
+      Otherwise, check the checkbox to enable Visuell for this tab.
       <br>
       <input id="chkEnable" type="checkbox">Enable Visuell</input>
       <br>
       <br>
       <button id="switchsettings" type="button">Settings</button>
+      <br>
+      <a href="http://www.achow101.com/Visuell/test_page.html">Demo Page</a><br>
+      <a href="http://www.achow101.com/Visuell/about_us.html">About UsM</a>
     </div>
 
     <!-- settings stuff -->
     <div id="settings" style="display:none">
+      Options for getting zoom data:
+      <br><br>
       <!-- Option tabs -->
       <div id="zoomopts">
         <input type="radio" id="rdopt1" name="zoomopt" checked='checked'>Visual Acuity Entry</input>
         <input type="radio" id="rdopt2" name="zoomopt">Snellen Test</input>
         <input type="radio" id="rdopt3" name="zoomopt">Prescription Entry</input>
       </div>
+      <br>
 
       <!-- Manual Entry -->
       <div id="manual" style="display:block">
+        Visual Acuity is the measurement of the clarity of vision. This test is typically done wih an eye chart. Visual Acuity is measured on the 20/20 scale (6/6 for metric). Use this form if you know your Visual Acuity.
+        <br><br>
         Visual Acuity:
         <div id="scale">20/<input id="visAc"></input></div>
         <br>
@@ -70,6 +82,8 @@
 
       <!-- Snellen Chart Picker -->
       <div id="snellenpick" style="display:none">
+        This form is a Snellen Chart, a commonly used chart to measure Visual Acuity. Remove your prescription lenses and select the the lowest line that you are able to see.
+        <br><br>
         <input type="image" src="snellen20200.png" id="snellen20200" style="height:58px;width:auto;"</input>
         <br>
         <input type="image" src="snellen20100.png" id="snellen20100" style="height:37px;width:auto;"</input>
@@ -90,6 +104,8 @@
 
       <!-- Prescription picker -->
       <div  id="diopters" style="display:none">
+        Your glasses prescription is related to your Visual Acuity. Enter the data for the Sphere from your glasses prescription. We will provide you with three different zoom options. Choose the one which is easiest for you to read.
+        <br><br>
         <table>
           <tr>
             <td>
@@ -102,60 +118,18 @@
                   <td>
                     Sphere
                   </td>
-                  <!--
-                  <td>
-                    Cylinder
-                  </td>
-                  <td>
-                    Axis
-                  </td>
-                  <td>
-                    Prism
-                  </td>
-                  <td>
-                    Base
-                  </td>
-                  -->
                 </tr>
                 <tr>
                   <td>OD</td>
                   <td>
                     <input id="dods"></input>
                   </td>
-                  <!--
-                  <td>
-                    <input id="dodc"></input>
-                  </td>
-                  <td>
-                    <input id="doda"></input>
-                  </td>
-                  <td>
-                    <input id="dodp"></input>
-                  </td>
-                  <td>
-                    <input id="dodb"></input>
-                  </td>
-                  -->
                 </tr>
                 <tr>
                   <td>OS</td>
                   <td>
                     <input id="doss"></input>
                   </td>
-                  <!--
-                  <td>
-                    <input id="dosc"></input>
-                  </td>
-                  <td>
-                    <input id="dosa"></input>
-                  </td>
-                  <td>
-                    <input id="dosp"></input>
-                  </td>
-                  <td>
-                    <input id="dosb"></input>
-                  </td>
-                  -->
                 </tr>
               </table>
             </td>
